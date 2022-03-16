@@ -3,20 +3,24 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use("view engine", "ejs");
+app.set('view engine', 'ejs');
 
-app.get("/", function(req, res){
+app.get("/", function(req, res) {
    
     var today = new Date();
     var currentDay = today.getDay();
+    var day = "";
 
     if(currentDay === 6 || currentDay === 0){
-        res.sendFile(__dirname + "/weekend.html")
+        day = "Weekend";
     }else {
-        res.sendFile(__dirname + "/weekday.html")
+        day = "Weekday";
+        
     }
+    res.render("list", {kindOfDay: day});
 });
 
-app.listen(3000, function(){
-    console.log("server is running in 3000");
-})
+
+app.listen(5000, function(){
+    console.log("server is running in 5000");
+});
