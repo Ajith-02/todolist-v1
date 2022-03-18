@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
+app.use(express.static("public"))
 
 var items =["apple", "orange"];
 
@@ -23,7 +24,7 @@ app.get("/", function(req, res) {
     var day = today.toLocaleDateString("en-US", options);
 
 
-    res.render("list", {kindOfDay: day, newListItems: items});
+    res.render("list", {listTitle: day, newListItems: items});
 });
 
 app.post("/", function(req, res) {
