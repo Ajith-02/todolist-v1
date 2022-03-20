@@ -45,11 +45,17 @@ app.get("/work", function(req, res){
     res.render("list", {listTitle: "work List", newListItems: workItems});
 });
 
-// app.post("/work", function(req, res){
-//     var item = req.body.newItem;
-//     workItems.push(item);
-//     res.redirect("/work");
-// })
+
+
+
+app.post("/work", function(req, res){
+    var item = req.body.newItem;
+    workItems.push(item);
+    res.redirect("/work");
+})
+
+
+
 
 app.get("/about", function(req, res){
     res.render("about")
