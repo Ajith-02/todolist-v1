@@ -1,6 +1,4 @@
-module.exports = getDate;
-
-function getDate(){
+exports.getDate = function (){
 
     var today = new Date();
     // var currentDay = today.getDay();
@@ -11,8 +9,21 @@ function getDate(){
         day: "numeric"
     };
  
-    var day = today.toLocaleDateString("en-US", options);
-    return day;
+    return today.toLocaleDateString("en-US", options);
+}
+
+exports.getDay = function (){
+
+    var today = new Date();
+    // var currentDay = today.getDay();
+    // var day = "";
+    var options = {
+        weekday: "long"
+        
+    };
+ 
+    return today.toLocaleDateString("en-US", options);
+    
 }
 
   
